@@ -1,5 +1,14 @@
 {
-    "default": {},
+    "default": {
+        "requests": {
+            "version": "==2.13.0",
+            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb"
+        },
+        "youtube_dl": {
+            "version": "==2017.1.25",
+            "hash": "sha256:735457b54b5741f06c4f889a958ec39b8960aa007d1c4d298e1f3a72a7fb9ce5"
+        }
+    },
     "develop": {},
     "_meta": {
         "sources": [
@@ -9,6 +18,6 @@
             }
         ],
         "requires": {},
-        "Pipfile-sha256": "446ebbd990e8049f1b6778deff975266dd2def19dbdd835db5e1e55a0855ca51"
+        "Pipfile-sha256": "a926cdc1c82611de3cad1f8f7582c1dc384e8c1612bb877a558bf934b0237194"
     }
 }
