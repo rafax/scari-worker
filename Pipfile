@@ -3,5 +3,7 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
+google_cloud_storage = "*"
 requests = "*"
 youtube_dl = "*"
+google_api_python_client = "*"
