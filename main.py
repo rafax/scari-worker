@@ -65,7 +65,7 @@ def upload(file_path):
 
 def complete(id, lease_id, file_name):
     url = (HOST+"jobs/%s/complete") % id
-    body = json.dumps({'leaseId': "\""+lease_id+"\"", 'storageUrl':"https://storage.googleapis.com/scari-666.appspot.com/"+ file_name})
+    body = json.dumps({'leaseId': "+lease_id+", 'storageUrl':"https://storage.googleapis.com/scari-666.appspot.com/"+ file_name})
     print url, body
     r = requests.post(url,json= body)
     print r.status_code, r.text
@@ -81,8 +81,11 @@ def main():
             continue
         print lease
         file_path = download(lease['job']['source'], audio=lease['job']['output'] == 'audio')
+        print 'downloaded ' + str(file_path)
         upload(file_path)
+        print 'uploaded'  + str(file_path)
         complete(lease['job']['id'], lease['leaseId'], os.path.basename(file_path))
+        print 'complete'  + str(file_path)
 
 
 if __name__ == "__main__":

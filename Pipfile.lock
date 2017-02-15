@@ -1,12 +1,84 @@
 {
     "default": {
+        "google-cloud-storage": {
+            "version": "==0.22.0",
+            "hash": "sha256:490451279bb03966b002f2b836abadb3943dd907a55c8d34b5f187277f117257"
+        },
+        "googleapis-common-protos": {
+            "version": "==1.5.2",
+            "hash": "sha256:f94cc66efba677a086b8b17b1240239433495b77631cd410f70151a8ff14435d"
+        },
+        "protobuf": {
+            "version": "==3.2.0",
+            "hash": "sha256:55030bccd91a54836b9c551b99234f5efbc9721c8b93c80569fbe94aca0b9c35"
+        },
+        "youtube-dl": {
+            "version": "==2017.2.14",
+            "hash": "sha256:2f7ae41cf2ea725b62b04987c7d44ac2a5540096650a1eac72616eb59f37890c"
+        },
+        "pyasn1": {
+            "version": "==0.2.2",
+            "hash": "sha256:d4178dce4243b5177afb5410156941fdc956288413ca676a56135cfeb008eba5"
+        },
+        "six": {
+            "version": "==1.10.0",
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1"
+        },
+        "google-auth-httplib2": {
+            "version": "==0.0.2",
+            "hash": "sha256:faacd855092a4c792e8cf3d3b4ed939518c495373a9f9cd31985c3166558452b"
+        },
+        "rsa": {
+            "version": "==3.4.2",
+            "hash": "sha256:43f682fea81c452c98d09fc316aae12de6d30c4b5c84226642cf8f8fd1c93abd"
+        },
+        "google-cloud-core": {
+            "version": "==0.22.1",
+            "hash": "sha256:df28b42006be41e60a8d826759681e4b36b4c23c1f62b325191707a116eff04b"
+        },
+        "packaging": {
+            "version": "==16.8",
+            "hash": "sha256:99276dc6e3a7851f32027a68f1095cd3f77c148091b092ea867a351811cfe388"
+        },
+        "uritemplate": {
+            "version": "==3.0.0",
+            "hash": "sha256:1b9c467a940ce9fb9f50df819e8ddd14696f89b9a8cc87ac77952ba416e0a8fd"
+        },
+        "httplib2": {
+            "version": "==0.10.3",
+            "hash": "sha256:e404d3b7bd86c1bc931906098e7c1305d6a3a6dcef141b8bb1059903abb3ceeb"
+        },
+        "setuptools": {
+            "version": "==34.2.0",
+            "hash": "sha256:75d352eeeddd96a3fb702b1da9f8b89e5f8c045dbd86e3894516733eb5f99713"
+        },
+        "pyasn1-modules": {
+            "version": "==0.0.8",
+            "hash": "sha256:6c955210b86fcff3420957072280560ddaf183aa761fb76240c20c322e01021d"
+        },
+        "pyparsing": {
+            "version": "==2.1.10",
+            "hash": "sha256:67101d7acee692962f33dd30b5dce079ff532dd9aa99ff48d52a3dad51d2fe84"
+        },
+        "google-auth": {
+            "version": "==0.6.0",
+            "hash": "sha256:cfde36b923f301942a7ad19bf07afa2d80e7ecadde250473e326eacbf8b64159"
+        },
+        "oauth2client": {
+            "version": "==4.0.0",
+            "hash": "sha256:f8ff4ad855b8917cdf213a33719e874d0fab1c26d44b2f08c9dfd7a5781889f5"
+        },
         "requests": {
             "version": "==2.13.0",
             "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb"
         },
-        "youtube_dl": {
-            "version": "==2017.1.25",
-            "hash": "sha256:735457b54b5741f06c4f889a958ec39b8960aa007d1c4d298e1f3a72a7fb9ce5"
+        "appdirs": {
+            "version": "==1.4.0",
+            "hash": "sha256:85e58578db8f29538f3109c11250c2a5514a2fcdc9890d9b2fe777eb55517736"
+        },
+        "google-api-python-client": {
+            "version": "==1.6.2",
+            "hash": "sha256:c0f4bcf398c937a43f382eecb384ba9b3a97ef9c24b156420b1b396fcaadd0af"
         }
     },
     "develop": {},
@@ -18,6 +90,8 @@
             }
         ],
         "requires": {},
-        "Pipfile-sha256": "a926cdc1c82611de3cad1f8f7582c1dc384e8c1612bb877a558bf934b0237194"
+        "hash": {
+            "sha256": "4d218d8b0cbda4d55e6af934d33de753f4d760863980cf267cb294bd79cc1f1c"
+        }
     }
 }
