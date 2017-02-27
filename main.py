@@ -11,8 +11,8 @@ from google.cloud import storage
 from oauth2client.client import GoogleCredentials
 
 BUCKET_NAME = "scari-666.appspot.com"
-#HOST = "http://scari.herokuapp.com/"
-HOST = "http://localhost:3001/"
+HOST = "http://scari.herokuapp.com/"
+# HOST = "http://localhost:3001/"
 
 ydlv = YoutubeDL(
     {'outtmpl': u'/tmp/out/%(title)s.%(ext)s', "restrictfilenames": True, 'format': 'mp4',
@@ -39,7 +39,7 @@ def download(video_url, audio=False):
 
     else:
         with ydlv:
-            result = ydla.extract_info(video_url, download=True)
+            result = ydlv.extract_info(video_url, download=True)
             return ydlv.prepare_filename(result)
 
 
@@ -65,19 +65,17 @@ def upload(file_path):
 
 def complete(id, lease_id, file_name):
     url = (HOST+"jobs/%s/complete") % id
-    body = json.dumps({'leaseId': "+lease_id+", 'storageUrl':"https://storage.googleapis.com/scari-666.appspot.com/"+ file_name})
-    print url, body
+    body = {"leaseId": lease_id, 'storageUrl':"https://storage.googleapis.com/scari-666.appspot.com/"+ file_name}
     r = requests.post(url,json= body)
-    print r.status_code, r.text
 
 
 def main():
     while True:
-        print 'leasing'
+        print 'Leasing'
         lease = lease_one()
         if not lease:
             print "Sleeping"
-            time.sleep(5)
+            time.sleep(10)
             continue
         print lease
         file_path = download(lease['job']['source'], audio=lease['job']['output'] == 'audio')
