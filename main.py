@@ -6,6 +6,7 @@ import time
 import requests
 import json
 import os
+import logging
 from google.cloud import storage
 
 from oauth2client.client import GoogleCredentials
@@ -44,7 +45,7 @@ def download(video_url, audio=False):
 
 
 def lease_one():
-    r = requests.post(HOST+"jobs/lease")
+    r = requests.post(HOST + "jobs/lease")
     if r.status_code == 204:
         return None
     lease = json.loads(r.text)
@@ -57,34 +58,39 @@ def upload(file_path):
     b = client.bucket(BUCKET_NAME)
     f = b.get_blob(fname)
     if f is not None:
-        print 'exists'
+        logging.info('exists')
         return
     b.blob(fname).upload_from_filename(file_path)
-    print 'uploaded ' + file_path
+    logging.info('uploaded ' + file_path)
 
 
 def complete(id, lease_id, file_name):
-    url = (HOST+"jobs/%s/complete") % id
-    body = {"leaseId": lease_id, 'storageUrl':"https://storage.googleapis.com/scari-666.appspot.com/"+ file_name}
-    r = requests.post(url,json= body)
+    url = (HOST + "jobs/%s/complete") % id
+    body = {"leaseId": lease_id,
+            'storageUrl': "https://storage.googleapis.com/scari-666.appspot.com/" + file_name}
+    r = requests.post(url, json=body)
 
 
 def main():
     while True:
-        print 'Leasing'
+        logging.info('Leasing')
         lease = lease_one()
         if not lease:
-            print "Sleeping"
+            logging.info("Sleeping")
             time.sleep(10)
             continue
-        print lease
-        file_path = download(lease['job']['source'], audio=lease['job']['output'] == 'audio')
-        print 'downloaded ' + str(file_path)
+        logging.info(lease)
+        file_path = download(lease['job']['source'], audio=lease[
+                             'job']['output'] == 'audio')
+        logging.info('downloaded ' + str(file_path))
         upload(file_path)
-        print 'uploaded'  + str(file_path)
-        complete(lease['job']['id'], lease['leaseId'], os.path.basename(file_path))
-        print 'complete'  + str(file_path)
+        logging.info('uploaded' + str(file_path))
+        complete(lease['job']['id'], lease['leaseId'],
+                 os.path.basename(file_path))
+        logging.info('complete' + str(file_path))
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s %(message)s')
     main()
