@@ -8,12 +8,12 @@ import json
 import os
 import logging
 from google.cloud import storage
+import backoff
 
 from oauth2client.client import GoogleCredentials
 
 BUCKET_NAME = "scari-666.appspot.com"
-HOST = "http://scari.herokuapp.com/"
-# HOST = "http://localhost:3001/"
+HOST = os.getenv("SCARI_WORKER_HOST", "http://scari.herokuapp.com/")
 
 ydlv = YoutubeDL(
     {'outtmpl': u'/tmp/out/%(title)s.%(ext)s', "restrictfilenames": True, 'format': 'mp4',
