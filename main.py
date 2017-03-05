@@ -44,6 +44,10 @@ def download(video_url, audio=False):
             return ydlv.prepare_filename(result)
 
 
+@backoff.on_exception(backoff.expo,
+                      (requests.exceptions.Timeout,
+                       requests.exceptions.ConnectionError),
+                      max_tries=8)
 def lease_one():
     r = requests.post(HOST + "jobs/lease")
     if r.status_code == 204:
@@ -91,6 +95,6 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, 
-                    format='%(asctime)s %(message)s')
+    logging.basicConfig(level=logging.INFO,
+                        format='%(asctime)s %(message)s')
     main()
